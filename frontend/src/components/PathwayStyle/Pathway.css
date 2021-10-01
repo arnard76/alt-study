@@ -1,0 +1,179 @@
+.pathway-page-outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  background-color: var(--colour-page-bg);
+}
+
+.back-btn {
+  background-color: var(--colour-lime-green);
+  text-decoration: none;
+  -webkit-transition: background-color var(--transition-duration-default);
+  transition: background-color var(--transition-duration-default);
+  position: relative;
+  width: 5rem;
+  height: 100vh;
+  border-radius: 0 0 40px 0;
+}
+
+.back-btn p {
+  font-size: 1rem;
+  -webkit-transform: rotate(-90deg) translate(-50%, calc(-50vh + 50% + 1.5rem));
+          transform: rotate(-90deg) translate(-50%, calc(-50vh + 50% + 1.5rem));
+  position: absolute;
+  width: 100vh;
+  text-align: center;
+}
+
+.back-btn:hover {
+  background-color: var(--colour-lime-green-hover);
+}
+
+.pathway-page {
+  max-height: 100vh;
+  overflow-x: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pathway-page p,
+.pathway-page h1,
+.pathway-page h2 {
+  color: var(--colour-plain-light-text);
+}
+
+.pathway-page .container {
+  margin-right: 0;
+  width: 95%;
+  margin-top: 1rem;
+}
+
+.pathway-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.pathway {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pathway > .parent > .option > .pathway-arrow {
+  display: none;
+}
+
+.pathway .parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pathway-option-preview {
+  font-size: 0.6rem;
+  background-color: var(--colour-lime-green);
+  max-width: 12em;
+  outline: rgba(0, 0, 0, 0.377) 0.2em solid;
+  outline-offset: -0.2em;
+  padding: 0.5em;
+  cursor: pointer;
+  -webkit-transition: background-color var(--transition-duration-default);
+  transition: background-color var(--transition-duration-default);
+}
+
+.pathway-option-preview:hover {
+  background-color: var(--colour-lime-green-hover);
+}
+
+.pathway-option-preview p {
+  color: #000;
+}
+
+.pathway-option-preview p:nth-child(2) {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.pathway-arrow {
+  color: white;
+}
+
+.pathway-option {
+  position: absolute;
+  display: none;
+  background-color: var(--colour-tooltip-bg);
+  font-size: 0.78rem;
+  -ms-grid-columns: 8em 1fr;
+      grid-template-columns: 8em 1fr;
+  max-width: 30em;
+  margin-top: 0.75rem;
+  border-radius: 0.3em;
+  padding: 0.3em 0.45em;
+}
+
+.pathway-option::before {
+  content: "";
+  width: 1.5em;
+  height: 0.75em;
+  background-image: url("../../../static/images/tooltip-extra.svg");
+  background-repeat: no-repeat;
+  top: -0.75em;
+  left: 5%;
+  position: absolute;
+}
+
+.pathway-option.active {
+  display: -ms-grid;
+  display: grid;
+}
+
+.pathway-option p {
+  color: var(--colour-plain-text);
+  border-bottom: solid 0.0625em;
+  border-color: rgba(0, 0, 0, 0.6);
+  padding: 0.125em 0.3125em;
+}
+
+.pathway-option p:nth-child(odd) {
+  border-right: solid 0.0625em;
+}
+
+.pathway-option p:nth-last-child(2),
+.pathway-option p:nth-last-child(1) {
+  border-bottom: none;
+}
+
+.warning-message {
+  width: 15rem;
+}
+
+.warning-message h4 {
+  color: red;
+  margin: 0;
+}
+
+.pathway-information {
+  padding-top: 2rem;
+}
+
+.pathway-section {
+  max-width: 50vw;
+  margin: 1rem 0 2rem 0;
+}
+/*# sourceMappingURL=Pathway.css.map */

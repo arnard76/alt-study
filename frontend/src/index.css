@@ -1,0 +1,54 @@
+html {
+  --colour-lime-green: rgb(81, 255, 0);
+  --colour-lime-green-hover: rgb(77, 224, 8);
+  --colour-tooltip-bg: rgba(
+    196,
+    195,
+    196,
+    0.95
+  ); /*also used as search input bg*/
+  --colour-black: black;
+  --colour-page-bg: black;
+  --colour-plain-text: var(--color-black);
+  --colour-plain-light-text: white;
+  --colour-white: white;
+
+  --transition-duration-default: 0.3s;
+  --transition-duration-slow: 0.55s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.img-container {
+  width: 25vh;
+  height: 25vh;
+  /* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: -1;
+}
+
+.img-container > img {
+  /* min-width: 100%; */
+  max-height: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}

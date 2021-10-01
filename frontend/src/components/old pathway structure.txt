@@ -1,0 +1,48 @@
+{this.state.pathway.map((stage) => {
+                  return ({stage.map((option) => {
+                        option = option.self;
+                        return (
+                          <div
+                            onMouseEnter={(evt) => {
+                              document
+                                .querySelector(
+                                  "#" + option.id + " .pathway-option"
+                                )
+                                .classList.add("active");
+
+                              // this.handleOpenPathwayInfo(landing);
+                            }}
+                            onMouseLeave={(evt) => {
+                              // this.handleOpenPathwayInfo(landing)
+                              document
+                                .querySelector(
+                                  "#" + option.id + " .pathway-option"
+                                )
+                                .classList.remove("active");
+                            }}
+                            id={option.id}
+                          >
+                            <div className="pathway-arrow">
+                              <p>-&gt;</p>
+                            </div>
+                            <div className="pathway-option-preview">
+                              <p>{option.Name}</p>
+                              <p>{option.provider}</p>
+                            </div>
+                            <div className="pathway-option">
+                              <p>financial costs:</p>
+                              <p>$5,000 NZD to enroll in this course</p>
+                              <p>academic requirements:</p>
+                              <p>No previous education needed</p>
+                              <p>description:</p>
+                              <p>
+                                Introduction to web development. No specific web
+                                technologies are dealt with and no prior web
+                                development experience required. provider has
+                                provided this course for 5 years.
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}   );
+                })}
