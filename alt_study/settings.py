@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'alt_study.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'alt_study',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd64oefadr43qfl',
+        'HOST': 'ec2-54-161-189-150.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'jbihnapamelkbk',
+        'PASSWORD': 'a3055c810fc15e18eff13f89cad58b50257d355391c94cf98f2daec45fdfa612',
     }
 
     # 'default': {
