@@ -1,0 +1,1 @@
+web: gunicorn alt_study.wsgi --log-file -
