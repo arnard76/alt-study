@@ -1,4 +1,0 @@
-superuser: 
-    - arnar
-    - arnard76@gmail.com
-    - vezpass
