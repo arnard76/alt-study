@@ -86,11 +86,6 @@ class Job(Template):
     #     return '[Job] '+super().__str__()
 
 
-# class OptionManager(models.Manager):
-#     def create_option(self, content_type, object_id, content_object, children):
-#         if children
-
-
 class Option(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
@@ -108,8 +103,6 @@ class Option(models.Model):
     parent = models.ForeignKey(
         'self', on_delete=models.SET_NULL, null=True, blank=True)
 
-    # objects = OptionManager()
-
     def __str__(self):
         return "{option}".format(option=self.content_object)
 
@@ -119,7 +112,11 @@ class Option(models.Model):
         childrenList = []
         for child in children:
             childrenList.append(child.get_option_branch())
+<<<<<<< HEAD
         return {'option': self.content_object.as_dict(), 'children': childrenList}
+=======
+        return {'option': {'option_id': self.id, 'name': self.content_object.name, 'provider': self.content_object.provider, 'description': self.content_object.description}, 'children': childrenList}
+>>>>>>> 489531b (alter models.py a lil bit, nothing serious)
 
 
 class Pathway(models.Model):
