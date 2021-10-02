@@ -112,11 +112,7 @@ class Option(models.Model):
         childrenList = []
         for child in children:
             childrenList.append(child.get_option_branch())
-<<<<<<< HEAD
-        return {'option': self.content_object.as_dict(), 'children': childrenList}
-=======
         return {'option': {'option_id': self.id, 'name': self.content_object.name, 'provider': self.content_object.provider, 'description': self.content_object.description}, 'children': childrenList}
->>>>>>> 489531b (alter models.py a lil bit, nothing serious)
 
 
 class Pathway(models.Model):
