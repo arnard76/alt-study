@@ -49,9 +49,6 @@ class Template(models.Model):
     def get_children(self):
         return json.loads(self.children)
 
-    def as_dict(self):
-        return {'id': self.id, 'name': self.name, 'provider': self.provider, 'description': self.description}
-
 
 class Course(Template):
     code = models.CharField(max_length=50, unique=True)
