@@ -26,7 +26,9 @@ class Pathway extends Component {
     const data = await response.json();
     if (data.length == 1) {
       data[0].pathway = JSON.parse(data[0].pathway);
-      this.setState({ pathwayData: data[0], isLoading: false });
+      this.setState({ pathwayData: data[0], isLoading: false }, () => {
+        console.log(data[0]);
+      });
     }
   }
 

@@ -8,6 +8,16 @@ from rest_framework.response import Response
 import json
 
 
+def update_pathway(request, pathway_id=None):
+    print(pathway_id)
+    pathwayObj = Pathway.objects.get(id=pathway_id)
+    first_option_id = pathwayObj.get_pathway()['option']['option_id']
+    pathwayObj.set_pathway(first_option_id)
+    pathwayObj.save()
+    print(pathwayObj)
+    return HttpResponse("<span style='font-weight: 700;'>This only updates the pathway if the first option in the pathway is still the same.</span><br><br>{pathway}".format(pathway=pathwayObj.pathway))
+
+
 class GetCategories(generics.ListAPIView):
     serializer_class = CategorySerializer
 
