@@ -2,37 +2,27 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js", 
+  "main": "index.js",
   "context": "src",
-  "entry": {"serverEntry": ["./index.js"]},
-
+  "entry": {
+    "serverEntry": [
+      "./index.js"
+    ]
+  },
   "engines": {
     "node": "14.x"
   },
-
   "scripts": {
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
-
   "keywords": [],
   "author": "Arnav Shekaran",
   "license": "ISC",
-
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.5",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^6.3.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "babel-loader": "^8.1.0",
@@ -40,6 +30,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
+    "style-loader": "^3.3.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
   }
