@@ -5,13 +5,20 @@
   "main": "index.js", 
   "context": "src",
   "entry": {"serverEntry": ["./index.js"]},
+
+  "engines": {
+    "node": "14.x"
+  },
+
   "scripts": {
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
+
   "keywords": [],
-  "author": "",
+  "author": "Arnav Shekaran",
   "license": "ISC",
+
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
