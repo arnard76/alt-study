@@ -26,9 +26,7 @@ class Pathway extends Component {
     const data = await response.json();
     if (data.length == 1) {
       data[0].pathway = JSON.parse(data[0].pathway);
-      this.setState({ pathwayData: data[0], isLoading: false }, () => {
-        console.log(data[0]);
-      });
+      this.setState({ pathwayData: data[0], isLoading: false });
     }
   }
 
@@ -40,15 +38,15 @@ class Pathway extends Component {
       <div className="parent">
         <div
           className="option"
-          id={"option-" + option.id}
-          onMouseEnter={(evt) => {
+          id={"option-" + option.option_id}
+          onMouseEnter={() => {
             document
-              .querySelector("#option-" + option.id + " .pathway-option")
+              .querySelector("#option-" + option.option_id + " .pathway-option")
               .classList.add("active");
           }}
-          onMouseLeave={(evt) => {
+          onMouseLeave={() => {
             document
-              .querySelector("#option-" + option.id + " .pathway-option")
+              .querySelector("#option-" + option.option_id + " .pathway-option")
               .classList.remove("active");
           }}
         >
@@ -71,7 +69,7 @@ class Pathway extends Component {
         <div className="children">
           {children.map((child) => {
             return (
-              <div className="child" key={child.option.id}>
+              <div className="child" key={child.option.option_id}>
                 {this.handleRenderOption(child)}
               </div>
             );
