@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./PathwayStyle/Pathway.css";
 import { Link, withRouter } from "react-router-dom";
+import OptionPreview from "./OptionPreview";
+import ActiveOption from "./ActiveOption";
 
 class Pathway extends Component {
   state = {
@@ -11,11 +13,12 @@ class Pathway extends Component {
       description: "Pathway Description",
       pathway: {},
     },
+    optionData: {},
   };
 
   constructor() {
     super();
-    this.handleRenderOption = this.handleRenderOption.bind(this);
+    this.handleRenderPathway = this.handleRenderPathway.bind(this);
   }
 
   async componentDidMount() {
@@ -30,47 +33,34 @@ class Pathway extends Component {
     }
   }
 
-  handleRenderOption(option) {
+  handleRenderPathway(option) {
     var children = option.children;
     var option = option.option;
 
     return (
       <div className="parent">
-        <div
-          className="option"
-          id={"option-" + option.option_id}
-          onMouseEnter={() => {
-            document
-              .querySelector("#option-" + option.option_id + " .pathway-option")
-              .classList.add("active");
-          }}
-          onMouseLeave={() => {
-            document
-              .querySelector("#option-" + option.option_id + " .pathway-option")
-              .classList.remove("active");
-          }}
-        >
-          <div className="pathway-arrow">
-            <p>-&gt;</p>
-          </div>
-          <div className="pathway-option-preview">
-            <p>{option.name}</p>
-            <p>{option.provider}</p>
-          </div>
-          <div className="pathway-option">
-            <p>financial costs:</p>
-            <p>FINANCIAL COSTS GO HERE</p>
-            <p>academic requirements:</p>
-            <p>ACADEMIC REQUIREMENTS GO HERE</p>
-            <p>description:</p>
-            <p>{option.description}</p>
-          </div>
+        <div className="pathway-arrow">
+          <p>-&gt;</p>
         </div>
+        <OptionPreview
+          name={option.name}
+          provider={option.provider}
+          handleActivateOption={() => {
+            this.setState(
+              {
+                optionData: option,
+              },
+              () => {
+                console.log(option);
+              }
+            );
+          }}
+        />
         <div className="children">
           {children.map((child) => {
             return (
               <div className="child" key={child.option.option_id}>
-                {this.handleRenderOption(child)}
+                {this.handleRenderPathway(child)}
               </div>
             );
           })}
@@ -80,46 +70,41 @@ class Pathway extends Component {
   }
 
   render() {
-    return (
-      <div className="pathway-page-outer">
-        <Link to="/" className="back-btn">
-          <p>Go back to study options</p>
-        </Link>
-        {!this.state.isLoading && (
-          <div className="pathway-page">
-            {/* <div className="img-container pathway-image">
-            <img src={this.state.image} alt="" />
-          </div> */}
-            <div className="container">
-              <h1 className="pathway-name">{this.state.pathwayData.name}</h1>
-              <div className="pathway-container">
-                <div className="pathway">
-                  {this.state.pathwayData.pathway.option &&
-                    this.handleRenderOption(this.state.pathwayData.pathway)}
-                </div>
-                <div className="warning-message">
-                  <h4>Warning</h4>
-                  <p>
-                    This is not a fixed process. Different opportunities and
-                    distractions will also present themselves in abundance.
-                  </p>
-                </div>
-              </div>
-              {/* <div className="pathway-information">
-              {this.state.pathwayData.details.map((section) => {
-                return (
-                  <section className="pathway-section" key={section.heading}>
-                    <h2>{section.heading}</h2>
-                    {section.content}
-                  </section>
-                );
-              })}
-            </div> */}
-            </div>
+    if (!this.state.isLoading) {
+      return (
+        <div className="pathway-page">
+          <h1 className="pathway-name">{this.state.pathwayData.name}</h1>
+
+          <div className="pathway">
+            {this.state.pathwayData.pathway.option &&
+              this.handleRenderPathway(this.state.pathwayData.pathway)}
+            {Object.entries(this.state.optionData).length && (
+              <ActiveOption optionData={this.state.optionData} />
+            )}
           </div>
-        )}
-      </div>
-    );
+          <div className="warning-message">
+            <h4>Warning</h4>
+            <p>
+              This is not a fixed process. Different opportunities and
+              distractions will also present themselves in abundance.
+            </p>
+          </div>
+
+          {/* <div className="pathway-information">
+            {this.state.pathwayData.details.map((section) => {
+              return (
+                <section className="pathway-section" key={section.heading}>
+                  <h2>{section.heading}</h2>
+                  {section.content}
+                </section>
+              );
+            })}
+            </div> */}
+        </div>
+      );
+    } else {
+      return <p>Page could not load!</p>;
+    }
   }
 }
 

@@ -1,0 +1,14 @@
+.ActiveOption {
+  background-color: red;
+}
+
+.ActiveOption {
+  background-color: var(--colour-tooltip-bg);
+  font-size: 0.78rem;
+  grid-template-columns: 8em 1fr;
+  max-width: 30em;
+  min-width: 15em;
+  margin-top: 0.75rem;
+  border-radius: 0.3em;
+  padding: 0.3em 0.45em;
+}
